@@ -12,3 +12,5 @@ print(is_ok, type(is_ok))
 
 num1: int = 1
 name1: str = '1'
+
+print('Hi', 'Mike', sep=',', end='\n')
