@@ -1,0 +1,1 @@
+# このファイルがないと、Pythonはlesson_packageをパッケージとして認識しない
