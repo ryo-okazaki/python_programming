@@ -10,6 +10,9 @@ class Person(object):
     def run (self):
         print('run')
 
+    def __del__(self):
+        print('good bye')
+
 person = Person('Mike')
 person.say_something()
 
