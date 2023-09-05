@@ -24,11 +24,11 @@ with open('test.txt', 'w') as f:
 with open('test.txt', 'r') as f:
     # print(f.read())
 
-    while True:
-        line = f.readline()
-        print(line, end='')
-        if not line:
-            break
+    # while True:
+    #     line = f.readline()
+    #     print(line, end='')
+    #     if not line:
+    #         break
 
     # while True:
     #     chunk = 2 # 2文字ずつ読み込む
@@ -36,3 +36,9 @@ with open('test.txt', 'r') as f:
     #     print(line)
     #     if not line:
     #         break
+    print(f.tell()) # ファイルのどこを読んでいるか
+    print(f.read(1)) # 1文字読む
+    f.seek(5) # ファイルのどこを読むか指定
+    print(f.read(3))
+    f.seek(15) # ファイルのどこを読むか指定
+    print(f.read(3))
