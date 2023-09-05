@@ -59,3 +59,15 @@ print(tesla_car.enable_auto_run)
 tesla_car.enable_auto_run = True
 tesla_car.auto_tun()
 tesla_car.run()
+
+# 新しいメンバ変数として追加されてしまう
+tesla_car.__enable_auto_run2 = True
+
+
+class T(object):
+    pass
+
+t = T()
+t.name = 'test'
+t.age = 20
+print(t.name, t.age)
