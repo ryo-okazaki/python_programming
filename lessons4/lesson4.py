@@ -14,7 +14,8 @@ b = Person('B')
 b.who_are_you()
 
 class T(object):
-    words = []
+    def __init__(self):
+        self.words = []
 
     def add_word(self, word):
         self.words.append(word)
@@ -29,3 +30,5 @@ d.add_word('add 3')
 d.add_word('add 4')
 print(d.words) # ['add 1', 'add 2', 'add 3', 'add 4']
 # 違うインスタンスにも関わらず、同じwordsを参照している
+
+# __init__で初期化すると大丈夫
