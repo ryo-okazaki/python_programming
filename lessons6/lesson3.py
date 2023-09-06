@@ -7,6 +7,8 @@ DEBUG
 """
 import logging
 
+# formatter = '%(levelname)s%:%(message)s'
+formatter = '%(asctime)s%:%(message)s'
 logging.basicConfig(filename='test.log', level=logging.INFO)
 # ログのレベルを変える
 
