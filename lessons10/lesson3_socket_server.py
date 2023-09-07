@@ -6,7 +6,7 @@
 import socket
 
 # with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-#     s.bind(('127.0.0.1', 50007))
+#     s.bind(('0.0.0.0', 50007))
 #     s.listen(1)
 #     while True:
 #         conn, addr = s.accept()
@@ -23,8 +23,10 @@ import socket
 
 # UDPの場合
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
-    s.connect(('127.0.0.1', 50007))
+    s.connect(('0.0.0.0', 50007))
     while True:
         msg = input('メッセージを入力してください: ')
         data, addr = s.recvfrom(1024)
         print("data: {}, addr: {}".format(data, addr))
+
+# コンテナをserver用とclient用に分けて実行する必要がある？
