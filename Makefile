@@ -9,3 +9,6 @@ interactive:
 
 db:
 	docker-compose exec mysql mysql -u root -p
+
+memcache:
+	docker-compose exec memcached memcached -vv

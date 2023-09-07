@@ -7,7 +7,7 @@ RUN echo "umask 000" >> /root/.bashrc
 RUN apt-get update && apt-get install -y sqlite3
 
 # Pythonの追加パッケージをインストール
-RUN pip install termcolor mysql-connector-python==8.0.29 pymysql
+RUN pip install termcolor mysql-connector-python==8.0.29 pymysql python-memcached
 
 # エントリポイントスクリプトを追加
 COPY entrypoint.sh /entrypoint.sh
