@@ -7,3 +7,20 @@ services:
     ports:
       - "8888:8888"
     command: /bin/bash -c "source activate base && jupyter notebook --notebook-dir=/app --ip='*' --port=8888 --no-browser --allow-root"
+
+  mysql:
+    image: mysql:8.0.29
+    environment:
+      MYSQL_DATABASE: python_db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - "3306:3306"
+    volumes:
+      - python_db:/var/lib/mysql
+
+volumes:
+  python_db:
+    driver: local

@@ -6,3 +6,6 @@ down:
 
 interactive:
 	docker-compose exec anaconda bash
+
+db:
+	docker-compose exec mysql mysql -u root -p
