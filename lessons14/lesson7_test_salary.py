@@ -73,3 +73,33 @@ class TestSalary(unittest.TestCase):
 
         self.assertEqual(salary_price, 101)
         self.mock_bonus.assert_called()
+
+    def test_calculation_salary_patch_side_effect(self):
+        def f(year):
+            return year * 2
+
+        # self.mock_bonus.side_effect = lambda year: f(year)
+        # self.mock_bonus.side_effect = ConnectionError
+
+        self.mock_bonus.side_effect = [
+            1,
+            2,
+            3,
+            ConnectionError('ConnectionError'),
+        ]
+
+        s = lesson7_salary.Salary(year=2017)
+        salary_price = s.calculation_salary()
+        self.assertEqual(salary_price, 101)
+
+        s = lesson7_salary.Salary(year=2018)
+        salary_price = s.calculation_salary()
+        self.assertEqual(salary_price, 102)
+
+        s = lesson7_salary.Salary(year=2019)
+        salary_price = s.calculation_salary()
+        self.assertEqual(salary_price, 103)
+
+        s = lesson7_salary.Salary(year=200)
+        with self.assertRaises(ValueError):
+            s.calculation_salary()
