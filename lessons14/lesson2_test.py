@@ -2,7 +2,20 @@ import unittest
 
 import lesson2
 
+release_name = 'lesson'
+
 class CalTest(unittest.TestCase):
+
+    def setUp(self):
+        print('setup')
+        self.cal = lesson2.Cal()
+
+    def tearDown(self):
+        print('clean up')
+        del self.cal
+
+    # @unittest.skip('skip!') # スキップ
+    @unittest.skipIf(release_name=='lesson', 'skip!!') # 条件付きスキップ
     def test_add_num_and_double(self):
         cal = lesson2.Cal()
         self.assertEquals(
