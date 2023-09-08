@@ -1,6 +1,9 @@
 import requests
 
 class ThirdPartyBonusRestApi(object):
+    def get_api_name(self):
+        return 'bonuses for 2017'
+
     def bonus_price(self, year):
         r = requests.get('http://localhost/bonus', params={'year': year})
         return r.json()['price']
