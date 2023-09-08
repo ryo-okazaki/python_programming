@@ -29,7 +29,7 @@ class TestCal(object):
 
     def test_add_num_and_double(self):
         cal = lesson2.Cal()
-        assert cal.add_num_and_double(1, 1) == 4
+        assert self.cal.add_num_and_double(1, 1) == 4
 
     # @pytest.mark.skip(reason='skip!') # PyCharmのpytestの実行構成でoptionのところに-rsを入力する
     @pytest.mark.skipif(release_name=='lesson', reason='skip!!') # 条件付きスキップ
