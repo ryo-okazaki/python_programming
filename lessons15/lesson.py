@@ -28,11 +28,26 @@ def worker2(x, y=1):
 #     print('started')
 
 if __name__ == '__main__':
-    t1 = threading.Thread(target=worker1)
-    t1.setDaemon(True)
-    t2 = threading.Thread(target=worker2)
-    t2.setDaemon(True)
-    t1.start()
-    t2.start()
-    print('started')
-    t1.join() # t1が終わるまで待つ 強制終了しない デーモン化した場合に記述する
+    threads = []
+    for _ in range(5):
+        t = threading.Thread(target=worker1)
+        t.setDaemon(True)
+        t.start()
+        threads.append(t)
+    # for thread in threads:
+    #     print('before join', thread.is_alive())
+    #     thread.join()
+    #     print('after join', thread.is_alive())
+    for thread in threading.enumerate():
+        if thread is threading.currentThread():
+            print('current thread')
+            continue
+        thread.join()
+
+
+    # t2 = threading.Thread(target=worker2)
+    # t2.setDaemon(True)
+    # t1.start()
+    # t2.start()
+    # print('started')
+    # t1.join() # t1が終わるまで待つ 強制終了しない デーモン化した場合に記述する
