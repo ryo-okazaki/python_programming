@@ -28,22 +28,26 @@ def worker2(x, y=1):
 #     print('started')
 
 if __name__ == '__main__':
-    threads = []
-    for _ in range(5):
-        t = threading.Thread(target=worker1)
-        t.setDaemon(True)
-        t.start()
-        threads.append(t)
-    # for thread in threads:
-    #     print('before join', thread.is_alive())
+    # threads = []
+    # for _ in range(5):
+    #     t = threading.Thread(target=worker1)
+    #     t.setDaemon(True)
+    #     t.start()
+    #     threads.append(t)
+    # # for thread in threads:
+    # #     print('before join', thread.is_alive())
+    # #     thread.join()
+    # #     print('after join', thread.is_alive())
+    # for thread in threading.enumerate():
+    #     if thread is threading.currentThread():
+    #         print('current thread')
+    #         continue
     #     thread.join()
-    #     print('after join', thread.is_alive())
-    for thread in threading.enumerate():
-        if thread is threading.currentThread():
-            print('current thread')
-            continue
-        thread.join()
 
+    t = threading.Timer(3, worker1)
+    t2 = threading.Timer(3, worker2, args=(100,), kwargs={'y': 200})
+    t.start()
+    t2.start()
 
     # t2 = threading.Thread(target=worker2)
     # t2.setDaemon(True)
