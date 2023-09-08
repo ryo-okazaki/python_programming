@@ -12,7 +12,8 @@ class TestCal(object):
         cls.cal = lesson2.Cal()
         cls.test_file_name = 'test.txt'
 
-    def test_add_num_and_double(self): #fixtureを引数に入れる
+    def test_add_num_and_double(self, csv_file): #fixtureを引数に入れる
+        print(csv_file)
         assert self.cal.add_num_and_double(1, 1) == 4
 
     def test_save(self, tmpdir):
