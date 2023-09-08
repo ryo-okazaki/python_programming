@@ -15,6 +15,9 @@ class Salary(object):
         self.base = base
         self.year = year
 
+    def get_from_boss(self):
+        return 0
+
     def calculation_salary(self):
         bonus = 0
         if self.year < 2020:

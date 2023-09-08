@@ -105,9 +105,12 @@ class TestSalary(unittest.TestCase):
             s.calculation_salary()
 
     @mock.patch('lesson7_salary.ThirdPartyBonusRestApi', spec=True)
-    def test_calculation_salary_class(self, mock_rest):
+    @mock.patch('lesson7_salary.Salary.get_from_boss')
+    def test_calculation_salary_class(self, mock_boss, mock_rest):
         mock_rest = mock_rest.return_value
         # mock_rest = mock_rest()
+        mock_boss.return_value = 1
+
         mock_rest.bonus_price.return_value = 1
         mock_rest.get_api_name.return_value = 'Money'
 
