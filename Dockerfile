@@ -7,7 +7,24 @@ RUN echo "umask 000" >> /root/.bashrc
 RUN apt-get update && apt-get install -y sqlite3
 
 # Pythonの追加パッケージをインストール
-RUN pip install termcolor mysql-connector-python==8.0.29 pymysql python-memcached networkx matplotlib pytest-cov pytest-xdist pytest-flake8 pytest-mock pytest-pylint pytest-runner pytest-sugar pytest-timeout pytest-watch pytest-xdist selenium
+RUN pip install termcolor \
+    mysql-connector-python==8.0.29 \
+    pymysql \
+    python-memcached \
+    networkx \
+    matplotlib \
+    pytest-cov \
+    pytest-xdist \
+    pytest-flake8 \
+    pytest-mock \
+    pytest-pylint \
+    pytest-runner \
+    pytest-sugar \
+    pytest-timeout \
+    pytest-watch \
+    pytest-xdist \
+    selenium \
+    pycryptodome
 
 # エントリポイントスクリプトを追加
 COPY entrypoint.sh /entrypoint.sh
