@@ -1,0 +1,2 @@
+# gunicornは、Flaskを動かすWSGIというHTTPサーバーの一種
+# supervisorは、gunicornを起動されるためのツール
